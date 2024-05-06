@@ -1,0 +1,39 @@
+# יצירת מוצרים
+product1 = Product("Laptop", 1000, 5)
+product2 = Product("Mouse", 20, 50)
+product3 = Product("Keyboard", 100, 30)
+
+# יצירת משתמשים
+user1 = User("John Doe", "john@example.com")
+user2 = User("Jane Smith", "jane@example.com")
+
+# החלת הנחה על מוצרים
+product1.apply_discount(10)  # הנחה של 10% על הלפטופ
+
+# יצירת הזמנות
+order1 = Order()
+order2 = Order()
+
+# הוספת מוצרים להזמנות
+order1.add_order(user1, product1)  # John מזמין לפטופ
+order1.add_order(user1, product2)  # John מזמין עכבר
+order2.add_order(user2, product2)  # Jane מזמינה עכבר
+order2.add_order(user2, product3)  # Jane מזמינה מקלדת
+
+# יצירת רשימה של ההזמנות
+orders = [order1, order2]
+
+# יצירת אובייקט Analytics
+analytics = Analytics(orders)
+
+
+# גנרציה של דוח מכירות
+sales_report = analytics.generate_sales_report()
+print("Sales Report:")
+print(sales_report)
+
+# גנרציה של דוח פופולריות מוצרים
+product_popularity_report = analytics.generate_product_popularity_report()
+print("\nProduct Popularity Report:")
+for product, count in product_popularity_report:
+    print(f"{product}: {count} times")
