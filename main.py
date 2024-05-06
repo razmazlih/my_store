@@ -1,16 +1,13 @@
 class Product:
     def __init__(self, name, price, amount):
-        self._name = name
-        self._price = price
-        self._amount = amount
+        self.name = name
+        self.price = price
+        self.amount = amount
 
 class User:
     def __init__(self, name, email):
-        self._name = name
-        self._email = email
-
-    def return_name(self):
-        return self._name
+        self.name = name
+        self.email = email
 
 class Order:
     def __init__(self):
@@ -19,6 +16,8 @@ class Order:
     def add_order(self, user, product):
         self.user_products[user] = product
 
-    # def __str__(self):
-    #     for key, products in self.user_products.item:
-    #         print(key.return_name, ":", [item.name for item in products])
+    def get_total_price(self, user):
+        total_price = 0
+        for product in self.user_products[user]:
+            total_price += product.price
+        return total_price
