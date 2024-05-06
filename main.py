@@ -94,3 +94,28 @@ class Analytics:
             # סדר את המוצרים לפי פופולריות
             sorted_popularity = sorted(popularity.items(), key=lambda x: x[1], reverse=True)
             return sorted_popularity
+
+
+# יצירת מוצרים
+product1 = Product("Laptop", 1200, 10)
+product2 = Product("Mouse", 25, 100)
+product3 = Product("Keyboard", 75, 50)
+
+# יצירת משתמש
+user1 = User("Alice", "alice@example.com")
+
+# יצירת הזמנה והוספת מוצרים להזמנה
+order1 = Order()
+order1.add_order(user1, product1)
+order1.add_order(user1, product2)
+
+# יצירת דוחות
+orders_list = [order1]  # רשימה של ההזמנות
+analytics = Analytics(orders_list)
+
+# גנרציה של דוח מכירות
+sales_report = analytics.generate_sales_report()
+product_popularity = analytics.generate_product_popularity_report()
+
+print(sales_report)
+print(product_popularity)
